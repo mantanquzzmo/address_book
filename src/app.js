@@ -3,18 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const storage = window.localStorage
         const contacts = JSON.parse(storage.getItem('contacts'))
         
-        let div = document.querySelector('.contact-list')
+        let div = document.querySelector('#contact-list')
       
         if (contacts && contacts.length > 0) {
           div.innerHTML = ''
       
-          const ul = document.createElement('ul')
+          //const ul = document.createElement('ul')
       
           contacts.forEach(contact => {
             let pos = contacts.indexOf(contact)
-            let li = document.createElement('li')
-            li.innerHTML = `
-            <div class="card">
+            //let li = document.createElement('li')
+            let cardDiv = document.createElement('div')
+            cardDiv.setAttribute('class', 'card')
+
+            //li.innerHTML = `
+            cardDiv.innerHTML = `
               <div class="ui card">
                 <div class="image">
                   <img src="https://avatars.dicebear.com/v2/male/:${contact.name}.svg"/>
@@ -33,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
             </div>
            `
-            ul.appendChild(li)
+            div.appendChild(cardDiv)
           })
       
-          div.appendChild(ul) 
+          //div.appendChild(ul) 
         } else { 
           div.innerHTML = '<p>You have no contacts in your address book</p>' 
         }
@@ -77,14 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
         location.reload()
     })
 
-    document.querySelector('ul').addEventListener('click', event => {
+    document.querySelector('#contact-list').addEventListener('click', event => {
         const storage = window.localStorage
         const clickedButton = event.target.id
         const contactNumber = clickedButton.replace('remove-btn-', '')
         const contacts = JSON.parse(storage.getItem('contacts'))
         const removeContact = confirm(`Are you sure you want to remove ${contacts[contactNumber].name}?`)
         if (removeContact == true) {
-            contacts.splice(contacts[contactNumber], 1)
+            contacts.splice(contactNumber, 1)
             storage.setItem('contacts', JSON.stringify(contacts))
             window.location.reload()
         }
