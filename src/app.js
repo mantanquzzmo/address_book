@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let pos = contacts.indexOf(contact)
             let li = document.createElement('li')
             li.innerHTML = `
-              <div class="card">
+            <div class="card">
+              <div class="ui card">
                 <div class="image">
-                  <img src="https://ca-address-book.herokuapp.com/images/pine.jpg" width="64", height="64" />
-                </div>
-                <div class="remove">
-                    <button id="remove-btn-${pos}" class="remove-contact">Remove ${ contact.name }</button>
+                  <img src="https://avatars.dicebear.com/v2/male/:${contact.name}.svg"/>
                 </div>
                 <div class="content">
                   <h1>${ contact.name }</h1>
@@ -28,7 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
                   ${ contact.email } | 
                   <a href="https://www.twitter.com/${ contact.twitter}">@${contact.twitter}</a>
                 </div>
+                <div class="remove" align="center">
+                    <button class="ui negative basic button" button id="remove-btn-${pos}" class="remove-contact">Remove ${ contact.name }</button>
+                    <br>
+                </div>
               </div>
+            </div>
            `
             ul.appendChild(li)
           })
