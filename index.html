@@ -10,46 +10,52 @@
 </head>
 
 <body>
-  
-  <script src="./dist/bundle.js"></script>
-  <h1>Contacts</h1>
-  <div class="ui raised very padded text container segment">
-      <div class="ui form">
-  <form action="#" class="new-contact-form" id="contact-form">
-    <h2>Add contact</h2>
+    <script src="./dist/bundle.js"></script>
+      <div class="ui raised very padded text container segment">
+        <div class="ui form">
+          <form action="#" class="new-contact-form" id="contact-form">
+            <h2>Add contact</h2>
     
     <div class="two fields">
-        <div class="field">
-    <label for="name">Name</label>
-    <input id="contact-name" name="name" type="text">
+      <div class="field">
+        <label for="name">Name</label>
+          <input id="contact-name" name="name" type="text">
+      </div>
+      
+      <div class="field">
+        <label for="email">Email</label>
+          <input id="contact-email" name="email" type="email">
+      </div>
     </div>
-        <div class="field">
-    <label for="email">Email</label>
-    <input id="contact-email" name="email" type="email">
-    </div></div>
 
     <div class="two fields">
-        <div class="field">
-          <label for="phone">Phone</label>
-    <input id="contact-phone" name="phone" type="text">
+      <div class="field">
+        <label for="phone">Phone</label>
+          <input id="contact-phone" name="phone" type="text">
     </div>
+
     <div class="field">
-    <label for="company">Company</label>
-    <input id="contact-company" name="company" type="text"></div>
+      <label for="company">Company</label>
+        <input id="contact-company" name="company" type="text">
+    </div>
+
     <div class="field">
-    <label for="twitter">Twitter</label>
-    <input id="contact-twitter" name="twitter" type="text">
-  </div>
-  </div>
+      <label for="twitter">Twitter</label>
+        <input id="contact-twitter" name="twitter" type="text">
+    </div>
+    </div>
     <label for="notes">Notes</label>
-    <textarea id="contact-notes" name="notes" type="text"></textarea>
-  <input class="ui olive button" input id=save-contact type="submit" value="Save contact">
- </div>
+      <textarea id="contact-notes" name="notes" type="text"></textarea>
+      <div class="ui hidden divider"></div>
+        <input class="ui olive button" input id=save-contact type="submit" value="Save contact">
+    </div>
   </form>
 </div>
-</div>
- <div class="ui grid" class id="contact-list">
-  </div>
-</body>
 
+<div style="margin-left:270px;">
+<h1>Contacts</h1>
+  <div class="ui link cards" class id="contact-list">
+  </div>
+</div>
+</body>
 </html>

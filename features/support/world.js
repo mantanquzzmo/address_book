@@ -16,11 +16,9 @@ class AddressBookWorld {
     async closeHomePage() {
         await this.browser.close()
     }
-
     async pageHasTextContent(expectedContent) {
         const pageContent = await this.page.content()
         const actualContent = pageContent.match(expectedContent)[0]
-
         expect(actualContent).to.be.eq(expectedContent)
     }
     async clickOnButton(btnName) {
@@ -34,7 +32,6 @@ class AddressBookWorld {
         this.inputElement = await this.page.$(inputSelector)
         await this.inputElement.type(content)
     }
-
     btnSelectorFromName(btnName) {
         switch (btnName) {
             case 'add contact':
@@ -63,5 +60,4 @@ class AddressBookWorld {
         expect(actualContent).to.be.eq(null)
     }
 }
-
 setWorldConstructor(AddressBookWorld)
