@@ -16,11 +16,9 @@ class AddressBookWorld {
     async closeHomePage() {
         await this.browser.close()
     }
-
     async pageHasTextContent(expectedContent) {
         const pageContent = await this.page.content()
         const actualContent = pageContent.match(expectedContent)[0]
-
         expect(actualContent).to.be.eq(expectedContent)
     }
     async clickOnButton(btnName) {
@@ -34,14 +32,16 @@ class AddressBookWorld {
         this.inputElement = await this.page.$(inputSelector)
         await this.inputElement.type(content)
     }
-
     btnSelectorFromName(btnName) {
         switch (btnName) {
             case 'add contact':
                 return '.add-contact'
                 break
             case 'save contact':
-                return '.save-contact'
+                return '#save-contact'
+                break
+            case 'remove jane doe':
+                return '#remove-btn-1'
                 break
             default:
                 throw `${btnName} button is not defined`
@@ -57,9 +57,7 @@ class AddressBookWorld {
     async pageDoesNotHaveTextContent(unexpectedContent) {
         const pageContent = await this.page.content()
         let actualContent = pageContent.match(unexpectedContent)
-
         expect(actualContent).to.be.eq(null)
     }
 }
-
 setWorldConstructor(AddressBookWorld)
